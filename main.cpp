@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <exception>
+#include <stdexcept>
 
 const char* filepath  = "default.txt";
 
@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 }
 
 int Expression()
-{
+{	
 	int left = Time();
 	Token t = tsp->Get();
 	if('-' == t.kind || '+' == t.kind ) return Time() - left;
