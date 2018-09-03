@@ -45,10 +45,11 @@ int main(int argc, char* argv[])
 	int sum = 0;
 	while(file && EOF != file.peek()) //TODO: should be 'while(tokenStream)'. Look into this
 	{
-		sum += Expression();
+		if('\r' == file.peek() || '\n' == file.peek()) file.ignore();
+		else sum += Expression();
 	}
 
-	std::cout << "Hours: " << sum/60 << " Minutes: " << sum%60 << std::endl; 
+	std::cout << "Hours: " << sum/60 << " Minutes: " << sum%60 << std::endl;
 
 	return 0;
 }
@@ -109,7 +110,7 @@ Token TokenStream::Get()
 
 	char ch;
 	in >> ch;
-	
+
 	switch(ch)
 	{
 		case '-':
