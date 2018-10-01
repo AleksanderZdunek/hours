@@ -135,6 +135,7 @@ Token TokenStream::Get()
 			return Token{'1', val};
 		}
 		default:
+			std::cout << "Bad token ch: " << ch << " : " << static_cast<unsigned int>(ch) << " :~\n";
 			throw std::runtime_error("Bad token");
 	}
 }
